@@ -61,16 +61,21 @@ class Logout:
             return log
 
     def debug(self, description: str) -> str:
+        """Creates debugging logs"""
         return self.__create_log(0, description)
 
     def info(self, description: str) -> str:
+        """Creates informative logs"""
         return self.__create_log(1, description)
 
     def warn(self, description: str) -> str:
+        """Creates warning logs"""
         return self.__create_log(2, description)
 
     def error(self, description: str) -> str:
+        """Creates error logs"""
         return self.__create_log(3, description)
 
     def fatal(self, description: str) -> str:
+        """Creates critical error logs"""
         return self.__create_log(4, description)

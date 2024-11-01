@@ -7,7 +7,7 @@ from logs import Logout
 
 if not os.path.exists(".\\logs"):
     os.mkdir(".\\logs")
-ML = Logout("main", logs_file=True, logs_file_path=os.getcwd()+"\\logs", min_logs_level=0)
+ML = Logout("main", logs_file=True, logs_file_path=os.getcwd()+"\\logs", min_logs_level=0)  # Main logs
 
 
 def main():

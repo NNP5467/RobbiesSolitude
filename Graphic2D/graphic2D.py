@@ -3,7 +3,7 @@ import pygame
 from logs import Logout
 
 
-class Graphic2DInstruments:
+class Graphic2DInstruments:  # This class is more like an interface
     """Created EXCLUSIVELY for classes of the Graphic2D category"""
     def __init__(self,
                  screen: pygame.Surface,
@@ -15,9 +15,9 @@ class Graphic2DInstruments:
         self._screen = screen
         self._log = log
 
-    def draw(self):
+    def render(self):
         """Object rendering logic"""
-        pass
+        pass  # You need to overwrite this method when inheriting
 
 
 class Graphic2D:
@@ -26,4 +26,4 @@ class Graphic2D:
 
     def draw(self):
         """Draw the object"""
-        self.obj.draw()
+        self.obj.render()

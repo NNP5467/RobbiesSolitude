@@ -23,7 +23,7 @@ class Object2D(Graphic2DInstruments):
         self.border = border
         self.border_radius = border_radius
 
-    def draw(self):
+    def render(self):
         try:
             pygame.draw.rect(self._screen, self.color, self.rect, self.border, self.border_radius)
         except Exception as e:

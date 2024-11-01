@@ -1,3 +1,5 @@
+"""Global constants"""
+
 from window import Window
 
 WIDTH: int

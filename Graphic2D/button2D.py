@@ -20,7 +20,7 @@ class Button2D(Graphic2DInstruments):
         self.colors = colors
         self.is_hover: bool = self.rect.collidepoint(pygame.mouse.get_pos())
 
-    def draw(self):
+    def render(self):
         try:
             self.is_hover = self.rect.collidepoint(pygame.mouse.get_pos())
 
