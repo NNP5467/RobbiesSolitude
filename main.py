@@ -28,8 +28,10 @@ def main():
                 break
 
         ML.info("Closed the window")
+        ML.save()
     except Exception as e:
         ML.fatal(f"The application was urgently closed by error: {e}")
+        raise e
 
 
 if __name__ == '__main__':

@@ -1,0 +1,7 @@
+{
+    "id": "no_texture",
+    "path": ".\\textures\\no_texture.png",
+    "textures": {
+        "texture": [0, 0, 32, 32]
+    }
+}

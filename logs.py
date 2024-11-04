@@ -2,6 +2,8 @@ import datetime
 
 from colorama import Fore
 
+from typing import Any
+
 
 class Logout:
     LOG_LEVELS = [
@@ -32,10 +34,8 @@ class Logout:
         :param logs_file: if True create log.txt
         :param logs_file_path: log file path
         """
-        if logs_file:
-            open(f"{logs_file_path}\\logs_{logout_name}_{self.__get_time()}.txt", "w").close()
-
         self.__name = logout_name
+        self.__logs = ""
         self.__log_format = log_format
         self.__logs_file = logs_file
         self.__logs_file_path = f"{logs_file_path}\\logs_{logout_name}_{self.__get_time()}.txt"
@@ -54,28 +54,31 @@ class Logout:
             log = self.__log_format.replace("level", self.LOG_LEVELS[level]).replace("time",
                   self.__get_time("%Y-%m-%d %H:%M:%S")).replace("name", self.__name).replace("description",
                                                                                              description)
-            if self.__logs_file:
-                with open(self.__logs_file_path, "a", encoding="utf-8-sig") as file:
-                    file.write(log + "\n")
             print(f"{self.__get_color(level)}{log}")
+            self.__logs += log + "\n"
             return log
 
-    def debug(self, description: str) -> str:
+    def save(self):
+        if self.__logs_file:
+            with open(self.__logs_file_path, "w", encoding="utf-8-sig") as file:
+                file.write(self.__logs)
+
+    def debug(self, *description: Any) -> str:
         """Creates debugging logs"""
-        return self.__create_log(0, description)
+        return self.__create_log(0, "".join([str(i) for i in description]))
 
-    def info(self, description: str) -> str:
+    def info(self, *description: Any) -> str:
         """Creates informative logs"""
-        return self.__create_log(1, description)
+        return self.__create_log(1, "".join([str(i) for i in description]))
 
-    def warn(self, description: str) -> str:
+    def warn(self, *description: Any) -> str:
         """Creates warning logs"""
-        return self.__create_log(2, description)
+        return self.__create_log(2, "".join([str(i) for i in description]))
 
-    def error(self, description: str) -> str:
+    def error(self, *description: Any) -> str:
         """Creates error logs"""
-        return self.__create_log(3, description)
+        return self.__create_log(3, "".join([str(i) for i in description]))
 
-    def fatal(self, description: str) -> str:
+    def fatal(self, *description: Any) -> str:
         """Creates critical error logs"""
-        return self.__create_log(4, description)
+        return self.__create_log(4, "".join([str(i) for i in description]))
