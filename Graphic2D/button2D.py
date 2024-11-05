@@ -3,6 +3,7 @@ import pygame
 from Graphic2D.graphic2D import Graphic2DInstruments
 from Graphic2D.textures import Textures
 from logs import Logout
+from utils import type_checking
 
 
 class Button2D(Graphic2DInstruments):
@@ -29,6 +30,15 @@ class Button2D(Graphic2DInstruments):
         """
 
         super().__init__(screen, log, x, y)
+
+        type_checking(screen, pygame.Surface, "")
+        type_checking(log, Logout, "")
+        type_checking(x, int, "")
+        type_checking(y, int, "")
+        type_checking(texture_x, int, "")
+        type_checking(texture_y, int, "")
+        type_checking(width, int, "")
+        type_checking(height, int, "")
 
         self._id: str = "no_texture"
         self._textures: Textures = Textures.get_images(self._id)
