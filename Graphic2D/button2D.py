@@ -1,10 +1,8 @@
 import pygame
 
-from Graphic2D.textures import Textures
 from Graphic2D.object2D import Object2D
 
 from logs import Logout
-from utils import types_checking
 
 
 class Button2D(Object2D):
@@ -23,8 +21,6 @@ class Button2D(Object2D):
                  width: int = 100,
                  height: int = 50):
         super().__init__(screen, log, x, y, texture_x, texture_y, width, height)
-        types_checking((screen, log, x, y, texture_x, texture_y, width, height),
-                       (pygame.Surface, Logout, int, int, int, int, int, int))
         
         self._is_hover: bool = self._hitbox.collidepoint(pygame.mouse.get_pos())
 
@@ -36,7 +32,7 @@ class Button2D(Object2D):
             else:
                 self._screen.blit(self._textures[0], self._get_textures_pos())
         except Exception as e:
-            self._log.fatal(str(e))
+            self._log.fatal(e)
             raise e
 
     def check_pressed(self, event: pygame.event.Event) -> None:

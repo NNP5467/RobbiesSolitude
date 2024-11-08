@@ -40,8 +40,8 @@ class Object2D(Graphic2DInstruments):
 
         self._id: str = "no_texture"
         self._textures: list = Textures.get_images(self._id)
-        self._textures_x = texture_x
-        self._textures_y = texture_y
+        self._texture_x = texture_x
+        self._texture_y = texture_y
 
         self._hitbox: pygame.Rect = pygame.Rect((x, y), (width, height))
 
@@ -49,8 +49,8 @@ class Object2D(Graphic2DInstruments):
         try:
             self._screen.blit(self._textures[0], self._get_texture_pos())
         except Exception as e:
-            self._log.fatal(str(e))
+            self._log.fatal(e)
             raise e
 
     def _get_texture_pos(self) -> tuple:
-        return tuple(self._texture_x, self._texture_y)
+        return (self._texture_x, self._texture_y)

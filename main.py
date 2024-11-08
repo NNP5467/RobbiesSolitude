@@ -15,7 +15,6 @@ def main():
         ML.info("Initialize...")
 
         config.WINDOW = window.Window(ML)
-        config.WINDOW.init()
         ML.debug("Config:\n"
                  f"{config.WIDTH=}\n"
                  f"{config.HEIGHT=}\n"

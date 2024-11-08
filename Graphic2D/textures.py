@@ -53,7 +53,7 @@ class Textures:
     @classmethod
     def get_images(cls, id: str) -> list:
         """Returns textures by the specified id"""
-        types_checking((id), (str))
+        types_checking((id,), (str,))
 
         images = []
         for textures in cls.TEXTURES:
