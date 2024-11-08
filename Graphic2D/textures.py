@@ -4,7 +4,7 @@ import json
 import pygame
 
 from PIL import Image
-from utils import type_checking
+from utils import types_checking
 
 
 class Textures:
@@ -53,7 +53,7 @@ class Textures:
     @classmethod
     def get_images(cls, id: str) -> list:
         """Returns textures by the specified id"""
-        type_checking(id, str, "Invalid id type!")
+        types_checking((id), (str))
 
         images = []
         for textures in cls.TEXTURES:

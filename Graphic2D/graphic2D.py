@@ -17,7 +17,7 @@ class Graphic2DInstruments:  # This class is more like an interface
 
     def render(self):
         """Object rendering logic"""
-        pass  # You need to overwrite this method when inheriting
+        pass
 
 
 class Graphic2D:

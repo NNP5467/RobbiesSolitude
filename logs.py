@@ -1,8 +1,8 @@
 import datetime
 
 from colorama import Fore
-
 from typing import Any
+from utils import types_checking
 
 
 class Logout:
@@ -34,6 +34,9 @@ class Logout:
         :param logs_file: if True create log.txt
         :param logs_file_path: log file path
         """
+        types_checking((logout_name, min_logs_level, log_format, logs_file, logs_file_path),
+                       (str, int, str, bool, str))
+
         self.__name = logout_name
         self.__logs = ""
         self.__log_format = log_format
